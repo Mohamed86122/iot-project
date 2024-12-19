@@ -4,6 +4,11 @@ from . import api
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path("api/dht11/", api.Dlist, name='dht11-list'),
+    path('api/dht11/chart-data-jour/', views.chart_data_jour, name='chart-data-jour'),
+    path('api/dht11/chart-data-semaine/', views.chart_data_semaine, name='chart-data-semaine'),
+    path('api/dht11/chart-data-mois/', views.chart_data_mois, name='chart-data-mois'),
+    path('api/alerts/', views.check_alerts, name='check_alerts'),  # Chemin pour les alertes
     path("api",api.Dlist,name='json'),
     path("api/post",api.Dlist,name='json'),
     path('download_csv/', views.download_csv, name='download_csv'),

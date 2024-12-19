@@ -40,16 +40,19 @@ INSTALLED_APPS = [
     'DHT',
     'rest_framework',
     'twilio',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+
 ]
 
 ROOT_URLCONF = 'projet.urls'
@@ -128,7 +131,6 @@ STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' # remplacer avec l'adresse SMTP de votrefournisseur de messagerie
 EMAIL_PORT = 587 # remplacer avec le port SMTP de votre fournisseur demessagerie
@@ -136,3 +138,4 @@ EMAIL_USE_TLS = True # ou False, selon la configuration de votrefournisseur de m
 EMAIL_HOST_USER = 'mohammed.sg1200@gmail.com' # remplacer avec votre adresse email
 EMAIL_HOST_PASSWORD = 'oxja nvmj sdav dwkg'
 
+CORS_ALLOW_ALL_ORIGINS = True  # Permet toutes les origines (recommandé uniquement pour le développement)

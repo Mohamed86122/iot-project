@@ -149,3 +149,30 @@ def sendtele():
     bot = telepot.Bot(token)
     bot.sendMessage(rece_id, 'la température depasse la normale')
     print(bot.sendMessage(rece_id, 'OK.'))
+
+def check_alerts(request):
+    """
+    Vérifie les alertes pour la température et l'humidité
+    """
+    last_data = Dht11.objects.last()  # Dernière mesure enregistrée
+    alert_config = AlertConfig.objects.first()  # Configuration des seuils
+
+    # Vérifier si des données ou une configuration existent
+    if not last_data or not alert_config:
+        return JsonResponse({"error": "Aucune donnée ou configuration d'alerte disponible"}, status=404)
+
+    # Initialisation des alertes
+    alerts = {
+        "temp": None,
+        "hum": None,
+    }
+
+    # Vérification des seuils pour la température
+    if last_data.temp < alert_config.temp_min or last_data.temp > alert_config.temp_max:
+        alerts["temp"] = f"Alerte température ! Valeur actuelle : {last_data.temp}°C (Seuil : {alert_config.temp_min} - {alert_config.temp_max})"
+
+    # Vérification des seuils pour l'humidité
+    if last_data.hum < alert_config.hum_min or last_data.hum > alert_config.hum_max:
+        alerts["hum"] = f"Alerte humidité ! Valeur actuelle : {last_data.hum}% (Seuil : {alert_config.hum_min} - {alert_config.hum_max})"
+
+    return JsonResponse(alerts)
