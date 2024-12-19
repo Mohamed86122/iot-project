@@ -1,0 +1,5 @@
+<div *ngIf="alerts.temp || alerts.hum" class="alert alert-danger">
+    <p *ngIf="alerts.temp">{{ alerts.temp }}</p>
+    <p *ngIf="alerts.hum">{{ alerts.hum }}</p>
+  </div>
+  

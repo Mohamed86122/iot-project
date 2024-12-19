@@ -1,0 +1,27 @@
+<div class="container">
+  <h3 style="margin-bottom: 20px; color: #333;">Graphiques de Température et Humidité</h3>
+
+  <!-- Boutons pour changer la période -->
+  <div class="mb-3">
+    <button (click)="fetchTodayData()" class="btn btn-primary">Aujourd'hui</button>
+    <button (click)="fetchWeekData()" class="btn btn-secondary">Cette Semaine</button>
+    <button (click)="fetchMonthData()" class="btn btn-danger">Ce Mois</button>
+  </div>
+
+  <!-- Spinner pour chargement -->
+  <div *ngIf="message === '' && (temperatureData.length === 0 || humidityData.length === 0)">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Chargement...</span>
+    </div>
+  </div>
+
+  <!-- Message d'erreur ou d'information -->
+  <div *ngIf="message" class="alert alert-warning">
+    {{ message }}
+  </div>
+
+  <!-- Canvas pour le graphique -->
+  <div *ngIf="!message && temperatureData.length > 0 && humidityData.length > 0" class="chart-container">
+    <canvas id="myChart"></canvas>
+  </div>
+</div>

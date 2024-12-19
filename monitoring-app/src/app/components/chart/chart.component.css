@@ -1,0 +1,71 @@
+/* Style pour le conteneur principal */
+.container {
+  margin: auto;
+  text-align: center;
+  max-width: 900px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style des boutons */
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+button.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+button.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+button.btn-secondary:hover {
+  background-color: #565e64;
+}
+
+button.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+button.btn-danger:hover {
+  background-color: #a71d2a;
+}
+
+/* Style pour le conteneur du graphique */
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 60vh;
+  width: 100%;
+}
+
+/* Message d'erreur ou d'information */
+.alert {
+  font-size: 16px;
+  margin: 10px auto;
+  padding: 15px;
+  width: 100%;
+  color: #856404;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 5px;
+  text-align: center;
+}

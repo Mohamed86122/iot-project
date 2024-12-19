@@ -1,0 +1,38 @@
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table thead th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .table td, .table th {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .dataTables_wrapper .dataTables_filter input {
+    margin-left: 0.5em;
+    border-radius: 4px;
+  }
+  
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    margin: 0 2px;
+  }
+  
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #0056b3;
+  }
+  

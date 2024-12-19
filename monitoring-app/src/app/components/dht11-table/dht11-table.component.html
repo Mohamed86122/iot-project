@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h3>Les mesures actuelles de température et d'humidité enregistrées par le capteur DHT11</h3>
+  <table id="dataTable" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Température</th>
+        <th>Humidité</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of records">
+        <td>{{ record.id }}</td>
+        <td>{{ record.temp }}</td>
+        <td>{{ record.hum }}</td>
+        <td>{{ record.dt }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    initializeDataTable();
+  });
+</script>
